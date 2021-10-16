@@ -1,36 +1,71 @@
-import { Engine, Loader, DisplayMode } from 'excalibur';
-import { LevelOne } from './scenes/level-one/level-one';
-import { Player } from './actors/player/player';
-import { Resources } from './resources';
+import { Engine, Loader, DisplayMode, Color } from "excalibur";
+import { LevelOne } from "./scenes/level-one/level-one";
+import { Paddle } from "./actors/paddle";
+import { Resources } from "./resources";
+import { Ball } from "./actors/ball";
+import { Brick } from "./actors/brick";
 
-/**
- * Managed game class
- */
 class Game extends Engine {
-  private player: Player;
-  private levelOne: LevelOne;
+  private paddle: Paddle = new Paddle();
+  private ball: Ball = new Ball();
+  private levelOne: LevelOne = new LevelOne();
 
   constructor() {
     super({ displayMode: DisplayMode.FitScreen });
   }
 
   public start() {
+    this.levelOne.add(this.paddle);
+    this.levelOne.add(this.ball);
 
-    // Create new scene with a player
-    this.levelOne = new LevelOne();
-    this.player = new Player();
-    this.levelOne.add(this.player);
+    this.input.pointers.primary.on("move", (event) => {
+      this.paddle.pos.x = event.worldPos.x;
+    });
 
-    game.add('levelOne', this.levelOne);
+    this.buildBricks();
+
+    game.add("levelOne", this.levelOne);
 
     // Automatically load all default resources
     const loader = new Loader(Object.values(Resources));
 
     return super.start(loader);
   }
+
+  private buildBricks() {
+    const padding = 20; // px
+    const xoffset = 65; // x-offset
+    const yoffset = 20; // y-offset
+    const columns = 5;
+    const rows = 3;
+
+    const brickColor = [Color.Violet, Color.Orange, Color.Yellow];
+
+    // Individual brick width with padding factored in
+    const brickWidth = game.drawWidth / columns - padding - padding / columns; // px
+    const brickHeight = 30; // px
+    const bricks: Brick[] = [];
+    for (let j = 0; j < rows; j++) {
+      for (let i = 0; i < columns; i++) {
+        bricks.push(
+          new Brick({
+            x: xoffset + i * (brickWidth + padding) + padding,
+            y: yoffset + j * (brickHeight + padding) + padding,
+            width: brickWidth,
+            height: brickHeight,
+            color: brickColor[j % brickColor.length],
+          })
+        );
+      }
+    }
+
+    for (const brick of bricks) {
+      this.levelOne.add(brick);
+    }
+  }
 }
 
 const game = new Game();
 game.start().then(() => {
-  game.goToScene('levelOne');
+  game.goToScene("levelOne");
 });
