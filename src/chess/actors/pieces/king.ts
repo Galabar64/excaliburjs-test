@@ -5,7 +5,7 @@ import { Piece } from "../piece";
 
 export class King extends Piece {
   constructor(team: Team, initialPos: [number, number], boardRef: Board) {
-    super(team, initialPos, boardRef, Resources.Sword);
+    super(team, initialPos, boardRef, Resources.king_black);
   }
 
   public highlightPossibleMove(): void {

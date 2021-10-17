@@ -1,4 +1,4 @@
-import { Actor, ImageSource } from "excalibur";
+import { Actor, ImageSource, Sprite } from "excalibur";
 import { Team } from "../models/team";
 import { Board } from "./board";
 
@@ -15,11 +15,17 @@ export abstract class Piece extends Actor {
     team: Team,
     initialPos: [number, number],
     boardRef: Board,
-    sprite: ImageSource
+    image: ImageSource
   ) {
-    super();
+    super({ width: 45, height: 45 });
     this.team = team;
-    this.graphics.use(sprite.toSprite());
+
+    this.graphics.use(
+      new Sprite({
+        image: image,
+        destSize: { width: 45, height: 45 },
+      })
+    );
 
     this._boardRef = boardRef;
     this.casePos = initialPos;
