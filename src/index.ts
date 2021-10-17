@@ -1,6 +1,6 @@
-import { Breakout } from "./breakout/engines/breakout";
+import { Chess } from "./chess/engines/chess";
 
-const game = new Breakout();
+const game = new Chess();
 game.start().then(() => {
-  game.goToScene("levelOne");
+  game.goToScene("level");
 });
