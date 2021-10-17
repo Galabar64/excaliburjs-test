@@ -4,12 +4,12 @@ import { Board } from "./board";
 
 export abstract class Piece extends Actor {
   public team: Team;
-  public casePos: [number, number];
+  public currentPos: [number, number];
 
   public abstract highlightPossibleMove(): void;
   public abstract validateMove(pos: [number, number]): boolean;
 
-  private _boardRef: Board;
+  protected boardRef: Board;
 
   constructor(
     team: Team,
@@ -27,11 +27,17 @@ export abstract class Piece extends Actor {
       })
     );
 
-    this._boardRef = boardRef;
-    this.casePos = initialPos;
+    this.boardRef = boardRef;
+    this.currentPos = initialPos;
 
-    this.validateCase(this.casePos);
-    this._boardRef.cases[this.casePos[0]][this.casePos[1]].piece = this;
+    this.validateCase(this.currentPos);
+    this.boardRef.cases[this.currentPos[0]][this.currentPos[1]].piece = this;
+  }
+
+  onInitialize() {
+    this.on("pointerdown", () => {
+      this.highlightPossibleMove();
+    });
   }
 
   public move(moveTo: [number, number]): void {}

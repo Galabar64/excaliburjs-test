@@ -8,6 +8,14 @@ export class Board extends Actor {
   public cases: Case[][] = this.buildCases();
   public pieces: Piece[] = this.buildPieces();
 
+  public resetHighlight(): void {
+    for (const casesX of this.cases) {
+      for (const caseY of casesX) {
+        caseY.resetHighlight();
+      }
+    }
+  }
+
   private buildCases(): Case[][] {
     const cases = new Array<Array<Case>>();
 
@@ -16,7 +24,10 @@ export class Board extends Actor {
       const row = new Array<Case>();
       for (let j = 0; j < 8; j++) {
         row.push(
-          new Case({ pos: vec(50 * i + 25, 50 * j + 25), color: colorCase })
+          new Case(this, {
+            pos: vec(50 * i + 25, 50 * j + 25),
+            color: colorCase,
+          })
         );
 
         if (colorCase.equal(Color.White)) {
@@ -32,6 +43,6 @@ export class Board extends Actor {
   }
 
   private buildPieces(): Piece[] {
-    return [new King(Team.White, [3, 7], this)];
+    return [new King(Team.White, [3, 5], this)];
   }
 }
