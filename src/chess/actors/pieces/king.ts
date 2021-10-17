@@ -1,9 +1,10 @@
 import { Color } from "excalibur";
+import { Team } from "../../models/team";
 import { Piece } from "../piece";
 
 export class King extends Piece {
-  constructor() {
-    super({ color: Color.ExcaliburBlue });
+  constructor(team: Team) {
+    super(team, { color: Color.ExcaliburBlue });
   }
 
   public highlightPossibleMove(): void {
