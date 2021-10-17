@@ -12,13 +12,8 @@ export class King extends Piece {
   public highlightPossibleMove(): void {
     const casesToHighlight: Case[] = [];
 
-    const x = this.currentPos[0];
-    const y = this.currentPos[1];
-
-    const currentCase = this.boardRef.cases[x][y];
-    if (currentCase) {
-      casesToHighlight.push(currentCase);
-    }
+    const x = this.currentCase.xPos;
+    const y = this.currentCase.yPos;
 
     const upCase = this.boardRef.cases[x][y - 1];
     if (upCase) {

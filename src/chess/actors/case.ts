@@ -8,6 +8,8 @@ export class Case extends Actor {
   private _boardRef: Board;
 
   public isHighlighted: boolean = false;
+  public xPos: number;
+  public yPos: number;
 
   public get piece(): Piece | undefined {
     return this._piece;
@@ -42,16 +44,22 @@ export class Case extends Actor {
     );
   }
 
-  constructor(boardRef: Board, config?: ActorArgs) {
+  constructor(boardRef: Board, xPos: number, yPos: number, config?: ActorArgs) {
     super({ ...config, width: 45, height: 45 });
     this._boardRef = boardRef;
+    this.xPos = xPos;
+    this.yPos = yPos;
     this._initialColor = this.color;
   }
 
   onInitialize() {
     this.on("pointerdown", () => {
       if (!this.piece && !this.isHighlighted) {
-        this._boardRef.resetHighlight();
+        this._boardRef.resetTouched();
+      }
+
+      if (this.isHighlighted) {
+        this._boardRef.movePiece(this);
       }
     });
   }
