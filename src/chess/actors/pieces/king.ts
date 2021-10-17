@@ -1,16 +1,17 @@
-import { Color } from "excalibur";
+import { Resources } from "../../../resources";
 import { Team } from "../../models/team";
+import { Board } from "../board";
 import { Piece } from "../piece";
 
 export class King extends Piece {
-  constructor(team: Team) {
-    super(team, { color: Color.ExcaliburBlue });
+  constructor(team: Team, initialPos: [number, number], boardRef: Board) {
+    super(team, initialPos, boardRef, Resources.Sword);
   }
 
   public highlightPossibleMove(): void {
     throw new Error("Method not implemented.");
   }
-  public move(): void {
+  public validateMove(): boolean {
     throw new Error("Method not implemented.");
   }
 }

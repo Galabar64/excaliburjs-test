@@ -14,9 +14,13 @@ export class Chess extends Engine {
   public start() {
     this.level.add(this.board);
     for (const casesX of this.board.cases) {
-        for (const caseY of casesX) {
-            this.level.add(caseY);
+      for (const caseY of casesX) {
+        this.level.add(caseY);
       }
+    }
+
+    for (const piece of this.board.pieces) {
+      this.level.add(piece);
     }
 
     this.add("level", this.level);
