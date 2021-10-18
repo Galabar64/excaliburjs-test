@@ -15,22 +15,22 @@ export class King extends Piece {
     const x = this.currentCase.xPos;
     const y = this.currentCase.yPos;
 
-    const upCase = this.boardRef.cases[x][y - 1];
+    const upCase = y - 1 > -1 ? this.boardRef.cases[x][y - 1] : undefined;
     if (upCase) {
       casesToHighlight.push(upCase);
     }
 
-    const leftCase = this.boardRef.cases[x - 1][y];
+    const leftCase = x - 1 > -1 ? this.boardRef.cases[x - 1][y] : undefined;
     if (leftCase) {
       casesToHighlight.push(leftCase);
     }
 
-    const rightCase = this.boardRef.cases[x + 1][y];
+    const rightCase = x + 1 < 8 ? this.boardRef.cases[x + 1][y] : undefined;
     if (rightCase) {
       casesToHighlight.push(rightCase);
     }
 
-    const downCase = this.boardRef.cases[x][y + 1];
+    const downCase = y + 1 < 8 ? this.boardRef.cases[x][y + 1] : undefined;
     if (downCase) {
       casesToHighlight.push(downCase);
     }
