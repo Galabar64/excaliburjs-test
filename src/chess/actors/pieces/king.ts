@@ -39,8 +39,4 @@ export class King extends Piece {
       caseToHighlight.highlight();
     }
   }
-
-  public validateMove(): boolean {
-    throw new Error("Method not implemented.");
-  }
 }

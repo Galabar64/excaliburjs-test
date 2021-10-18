@@ -6,10 +6,9 @@ import { Case } from "./case";
 export abstract class Piece extends Actor {
   public team: Team;
   public currentCase: Case;
-  public touched: boolean = false;
+  public touched = false;
 
   public abstract highlightPossibleMove(): void;
-  public abstract validateMove(pos: [number, number]): boolean;
 
   protected boardRef: Board;
 
