@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Color, Timer, vec } from "excalibur";
+import { Actor, CollisionType, Color, vec } from "excalibur";
 import { Brick } from "./brick";
 
 export class Ball extends Actor {
@@ -26,7 +26,7 @@ export class Ball extends Actor {
       // intersections are the direction body A has to move to not be clipping body B
       // `ev.intersection` is a vector `normalize()` will make the length of it 1
       // `negate()` flips the direction of the vector
-      var intersection = event.intersection.normalize();
+      const intersection = event.intersection.normalize();
 
       // The largest component of intersection is our axis to flip
       if (Math.abs(intersection.x) > Math.abs(intersection.y)) {

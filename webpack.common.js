@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -6,7 +8,7 @@ module.exports = {
   entry: "./src/index.ts",
   target: "web",
   output: {
-    filename: '[name].js',
+    filename: "[name].js",
     sourceMapFilename: "[file].map",
     path: path.resolve(__dirname, "dist"),
   },

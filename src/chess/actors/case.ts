@@ -7,7 +7,7 @@ export class Case extends Actor {
   private _piece?: Piece | undefined;
   private _boardRef: Board;
 
-  public isHighlighted: boolean = false;
+  public isHighlighted = false;
   public xPos: number;
   public yPos: number;
 
