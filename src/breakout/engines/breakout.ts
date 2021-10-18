@@ -53,7 +53,7 @@ export class Breakout extends Engine {
             y: yoffset + j * (brickHeight + padding) + padding,
             width: brickWidth,
             height: brickHeight,
-            color: brickColor[j % brickColor.length],
+            color: brickColor[j % brickColor.length]
           })
         );
       }

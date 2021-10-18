@@ -30,7 +30,7 @@ const Resources = {
   rook_white: new ImageSource(rookWhite),
   bishop_white: new ImageSource(bishopWhite),
   knight_white: new ImageSource(knightWhite),
-  pawn_white: new ImageSource(pawnWhite),
+  pawn_white: new ImageSource(pawnWhite)
 };
 
 export { Resources };

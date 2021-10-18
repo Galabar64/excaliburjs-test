@@ -24,7 +24,7 @@ export abstract class Piece extends Actor {
     this.graphics.use(
       new Sprite({
         image: image,
-        destSize: { width: 45, height: 45 },
+        destSize: { width: 45, height: 45 }
       })
     );
 

@@ -3,6 +3,7 @@ import { Team } from "../models/team";
 import { Case } from "./case";
 import { Piece } from "./piece";
 import { King } from "./pieces/king";
+import { Queen } from "./pieces/queen";
 
 export class Board extends Actor {
   public cases: Case[][] = this.buildCases();
@@ -36,7 +37,7 @@ export class Board extends Actor {
         row.push(
           new Case(this, x, y, {
             pos: vec(50 * x + 25, 50 * y + 25),
-            color: colorCase,
+            color: colorCase
           })
         );
 
@@ -53,6 +54,9 @@ export class Board extends Actor {
   }
 
   private buildPieces(): Piece[] {
-    return [new King(Team.White, [3, 5], this)];
+    return [
+      new King(Team.White, [3, 5], this),
+      new Queen(Team.Black, [6, 1], this)
+    ];
   }
 }

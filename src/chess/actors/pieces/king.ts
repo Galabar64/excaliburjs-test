@@ -6,7 +6,12 @@ import { Piece } from "../piece";
 
 export class King extends Piece {
   constructor(team: Team, initialPos: [number, number], boardRef: Board) {
-    super(team, initialPos, boardRef, Resources.king_black);
+    super(
+      team,
+      initialPos,
+      boardRef,
+      team === Team.White ? Resources.king_white : Resources.king_black
+    );
   }
 
   public highlightPossibleMove(): void {

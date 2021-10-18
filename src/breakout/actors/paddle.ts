@@ -6,7 +6,7 @@ export class Paddle extends Actor {
       width: 200,
       height: 20,
       color: Color.Chartreuse,
-      collisionType: CollisionType.Fixed,
+      collisionType: CollisionType.Fixed
     });
   }
 

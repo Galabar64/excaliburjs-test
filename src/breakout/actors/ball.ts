@@ -8,7 +8,7 @@ export class Ball extends Actor {
       y: 300,
       radius: 10,
       color: Color.Red,
-      collisionType: CollisionType.Passive,
+      collisionType: CollisionType.Passive
     });
   }
 

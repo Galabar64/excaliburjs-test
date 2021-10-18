@@ -28,7 +28,7 @@ export class Case extends Actor {
       new Rectangle({
         height: this.height,
         width: this.width,
-        color: this._initialColor,
+        color: this._initialColor
       })
     );
   }
@@ -39,7 +39,7 @@ export class Case extends Actor {
       new Rectangle({
         height: this.height,
         width: this.width,
-        color: Color.Magenta,
+        color: Color.Magenta
       })
     );
   }
