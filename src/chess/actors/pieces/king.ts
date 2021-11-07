@@ -40,6 +40,30 @@ export class King extends Piece {
       casesToHighlight.push(downCase);
     }
 
+    const upRightCase =
+      y - 1 > -1 && x + 1 < 8 ? this.boardRef.cases[x + 1][y - 1] : undefined;
+    if (upRightCase && upRightCase.piece?.team !== this.team) {
+      casesToHighlight.push(upRightCase);
+    }
+
+    const upLeftCase =
+      y - 1 > -1 && x - 1 > -1 ? this.boardRef.cases[x - 1][y - 1] : undefined;
+    if (upLeftCase && upLeftCase.piece?.team !== this.team) {
+      casesToHighlight.push(upLeftCase);
+    }
+
+    const downRightCase =
+      y + 1 < 8 && x + 1 < 8 ? this.boardRef.cases[x + 1][y + 1] : undefined;
+    if (downRightCase && downRightCase.piece?.team !== this.team) {
+      casesToHighlight.push(downRightCase);
+    }
+
+    const downLeftCase =
+      y + 1 < 8 && x - 1 > -1 ? this.boardRef.cases[x - 1][y + 1] : undefined;
+    if (downLeftCase && downLeftCase.piece?.team !== this.team) {
+      casesToHighlight.push(downLeftCase);
+    }
+
     for (const caseToHighlight of casesToHighlight) {
       caseToHighlight.highlight();
     }

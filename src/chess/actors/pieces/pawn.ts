@@ -60,7 +60,7 @@ export class Pawn extends Piece {
     }
 
     const upLeftCase =
-      y - 1 > -1 && x - 1 > 1 ? this.boardRef.cases[x - 1][y - 1] : undefined;
+      y - 1 > -1 && x - 1 > -1 ? this.boardRef.cases[x - 1][y - 1] : undefined;
     if (upLeftCase && upLeftCase.piece && upLeftCase.piece.team === "Black") {
       casesToHighlight.push(upLeftCase);
     }
@@ -95,7 +95,7 @@ export class Pawn extends Piece {
     }
 
     const downLeftCase =
-      y + 1 < 8 && x - 1 > 1 ? this.boardRef.cases[x - 1][y + 1] : undefined;
+      y + 1 < 8 && x - 1 > -1 ? this.boardRef.cases[x - 1][y + 1] : undefined;
     if (
       downLeftCase &&
       downLeftCase.piece &&
