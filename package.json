@@ -1,8 +1,8 @@
 {
-  "name": "excalibur-webpack",
+  "name": "mqacx-chess",
   "version": "1.0.0",
   "private": true,
-  "description": "a webpack starter for excaliburjs projects",
+  "description": "A simple chess game",
   "main": "index.js",
   "scripts": {
     "test": "npm run build:prod && ex-test -d ./dist -t ./test/test.ts",
@@ -12,7 +12,7 @@
     "build:dev": "webpack --config webpack.development.js",
     "build:prod": "webpack --config webpack.production.js"
   },
-  "author": "Excalibur.js Team",
+  "author": "MQACX",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "@excaliburjs/testing": "0.25.0",

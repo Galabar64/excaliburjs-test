@@ -43,7 +43,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      title: "Excalibur Webpack Sample"
+      title: "MQACX's chess"
     })
   ]
 };
