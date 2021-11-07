@@ -37,7 +37,7 @@ export abstract class Piece extends Actor {
 
   onInitialize() {
     this.on("pointerdown", () => {
-      if (this.currentCase.isHighlighted) {
+      if (this.isKilled() || this.currentCase.isHighlighted) {
         return;
       }
 
@@ -56,9 +56,11 @@ export abstract class Piece extends Actor {
 
     moveToCase.piece = this;
     this.currentCase = moveToCase;
+    this.touched = false;
   }
 
   private eatPiece(piece: Piece) {
+    piece.currentCase.piece = undefined;
     piece.kill();
   }
 
