@@ -30,7 +30,7 @@ export abstract class Piece extends Actor {
 
     this.boardRef = boardRef;
 
-    this.validateCase(initialPos);
+    this.validateInitialCase(initialPos);
     this.currentCase = this.boardRef.cases[initialPos[0]][initialPos[1]];
     this.currentCase.piece = this;
   }
@@ -44,11 +44,20 @@ export abstract class Piece extends Actor {
 
   public move(moveToCase: Case): void {
     this.currentCase.piece = undefined;
+
+    if (moveToCase.piece) {
+      this.eatPiece(moveToCase.piece);
+    }
+
     moveToCase.piece = this;
     this.currentCase = moveToCase;
   }
 
-  private validateCase(pos: [number, number]) {
+  private eatPiece(piece: Piece) {
+    piece.kill();
+  }
+
+  private validateInitialCase(pos: [number, number]) {
     if (pos[0] < 0 || pos[1] < 0 || pos[0] >= 8 || pos[1] >= 8) {
       throw new Error("Invalid case position.");
     }
