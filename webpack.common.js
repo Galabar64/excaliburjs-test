@@ -10,40 +10,40 @@ module.exports = {
   output: {
     filename: "[name].js",
     sourceMapFilename: "[file].map",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist")
   },
   devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
+        type: "asset/resource"
       },
       {
         test: /\.js$/,
         use: ["source-map-loader"],
         exclude: [path.resolve(__dirname, "node_modules/excalibur")],
-        enforce: "pre",
+        enforce: "pre"
       },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
+        exclude: /node_modules/
+      }
+    ]
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js"]
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
-    },
+      chunks: "all"
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      title: "Excalibur Webpack Sample",
-    }),
-  ],
+      title: "Excalibur Webpack Sample"
+    })
+  ]
 };

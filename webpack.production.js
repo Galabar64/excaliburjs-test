@@ -9,7 +9,7 @@ module.exports = merge(common, {
   mode: "production",
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    minimizer: [new TerserPlugin()]
   },
-  plugins: [new CompressionWebpackPlugin()],
+  plugins: [new CompressionWebpackPlugin()]
 });
