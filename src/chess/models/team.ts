@@ -1,4 +1,1 @@
-export enum Team {
-  White,
-  Black
-}
+export type Team = "White" | "Black";

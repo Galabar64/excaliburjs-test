@@ -10,7 +10,7 @@ export class King extends Piece {
       team,
       initialPos,
       boardRef,
-      team === Team.White ? Resources.king_white : Resources.king_black
+      team === "White" ? Resources.king_white : Resources.king_black
     );
   }
 

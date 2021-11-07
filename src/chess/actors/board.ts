@@ -1,5 +1,4 @@
 import { Actor, Color, vec } from "excalibur";
-import { Team } from "../models/team";
 import { Case } from "./case";
 import { Piece } from "./piece";
 import { King } from "./pieces/king";
@@ -54,9 +53,6 @@ export class Board extends Actor {
   }
 
   private buildPieces(): Piece[] {
-    return [
-      new King(Team.White, [3, 5], this),
-      new Queen(Team.Black, [6, 1], this)
-    ];
+    return [new King("White", [3, 5], this), new Queen("Black", [6, 1], this)];
   }
 }
