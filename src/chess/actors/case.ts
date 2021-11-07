@@ -4,7 +4,7 @@ import { Piece } from "./piece";
 
 export class Case extends Actor {
   private _initialColor: Color;
-  private _piece?: Piece | undefined;
+  private _piece: Piece | undefined;
   private _boardRef: Board;
 
   public isHighlighted = false;
