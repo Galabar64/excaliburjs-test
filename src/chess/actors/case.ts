@@ -22,6 +22,26 @@ export class Case extends Actor {
     }
   }
 
+  constructor(boardRef: Board, xPos: number, yPos: number, config?: ActorArgs) {
+    super({ ...config, width: 45, height: 45 });
+    this._boardRef = boardRef;
+    this.xPos = xPos;
+    this.yPos = yPos;
+    this._initialColor = this.color;
+  }
+
+  onInitialize() {
+    this.on("pointerdown", () => {
+      if (!this.piece && !this.isHighlighted) {
+        this._boardRef.resetTouched();
+      }
+
+      if (this.isHighlighted) {
+        this._boardRef.movePiece(this);
+      }
+    });
+  }
+
   public resetHighlight() {
     this.isHighlighted = false;
     this.graphics.use(
@@ -42,25 +62,5 @@ export class Case extends Actor {
         color: Color.Magenta
       })
     );
-  }
-
-  constructor(boardRef: Board, xPos: number, yPos: number, config?: ActorArgs) {
-    super({ ...config, width: 45, height: 45 });
-    this._boardRef = boardRef;
-    this.xPos = xPos;
-    this.yPos = yPos;
-    this._initialColor = this.color;
-  }
-
-  onInitialize() {
-    this.on("pointerdown", () => {
-      if (!this.piece && !this.isHighlighted) {
-        this._boardRef.resetTouched();
-      }
-
-      if (this.isHighlighted) {
-        this._boardRef.movePiece(this);
-      }
-    });
   }
 }
