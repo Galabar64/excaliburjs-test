@@ -62,14 +62,14 @@ export class Board extends Actor {
 
   private buildWhitePieces(): Piece[] {
     return [
-      // new Pawn("White", [0, 6], this),
-      // new Pawn("White", [1, 6], this),
-      // new Pawn("White", [2, 6], this),
-      // new Pawn("White", [3, 6], this),
-      // new Pawn("White", [4, 6], this),
-      // new Pawn("White", [5, 6], this),
-      // new Pawn("White", [6, 6], this),
-      // new Pawn("White", [7, 6], this),
+      new Pawn("White", [0, 6], this),
+      new Pawn("White", [1, 6], this),
+      new Pawn("White", [2, 6], this),
+      new Pawn("White", [3, 6], this),
+      new Pawn("White", [4, 6], this),
+      new Pawn("White", [5, 6], this),
+      new Pawn("White", [6, 6], this),
+      new Pawn("White", [7, 6], this),
 
       new Rook("White", [0, 7], this),
       new Knight("White", [1, 7], this),
@@ -84,14 +84,14 @@ export class Board extends Actor {
 
   private buildBlackPieces(): Piece[] {
     return [
-      // new Pawn("Black", [0, 1], this),
-      // new Pawn("Black", [1, 1], this),
-      // new Pawn("Black", [2, 1], this),
-      // new Pawn("Black", [3, 1], this),
-      // new Pawn("Black", [4, 1], this),
-      // new Pawn("Black", [5, 1], this),
-      // new Pawn("Black", [6, 1], this),
-      // new Pawn("Black", [7, 1], this),
+      new Pawn("Black", [0, 1], this),
+      new Pawn("Black", [1, 1], this),
+      new Pawn("Black", [2, 1], this),
+      new Pawn("Black", [3, 1], this),
+      new Pawn("Black", [4, 1], this),
+      new Pawn("Black", [5, 1], this),
+      new Pawn("Black", [6, 1], this),
+      new Pawn("Black", [7, 1], this),
 
       new Rook("Black", [0, 0], this),
       new Knight("Black", [1, 0], this),
