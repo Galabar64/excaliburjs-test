@@ -14,6 +14,6 @@ export class Pawn extends Piece {
   }
 
   public highlightPossibleMove(): void {
-    throw new Error("Method not implemented.");
+    console.warn("Method not implemented.");
   }
 }

@@ -1,8 +1,12 @@
 import { Actor, Color, vec } from "excalibur";
 import { Case } from "./case";
 import { Piece } from "./piece";
+import { Bishop } from "./pieces/bishop";
 import { King } from "./pieces/king";
+import { Knight } from "./pieces/knight";
+import { Pawn } from "./pieces/pawn";
 import { Queen } from "./pieces/queen";
+import { Rook } from "./pieces/rook";
 
 export class Board extends Actor {
   public cases: Case[][] = this.buildCases();
@@ -53,6 +57,50 @@ export class Board extends Actor {
   }
 
   private buildPieces(): Piece[] {
-    return [new King("White", [3, 5], this), new Queen("Black", [6, 1], this)];
+    return [...this.buildWhitePieces(), ...this.buildBlackPieces()];
+  }
+
+  private buildWhitePieces(): Piece[] {
+    return [
+      // new Pawn("White", [0, 6], this),
+      // new Pawn("White", [1, 6], this),
+      // new Pawn("White", [2, 6], this),
+      // new Pawn("White", [3, 6], this),
+      // new Pawn("White", [4, 6], this),
+      // new Pawn("White", [5, 6], this),
+      // new Pawn("White", [6, 6], this),
+      // new Pawn("White", [7, 6], this),
+
+      new Rook("White", [0, 7], this),
+      new Knight("White", [1, 7], this),
+      new Bishop("White", [2, 7], this),
+      new Queen("White", [3, 7], this),
+      new King("White", [4, 7], this),
+      new Bishop("White", [5, 7], this),
+      new Knight("White", [6, 7], this),
+      new Rook("White", [7, 7], this)
+    ];
+  }
+
+  private buildBlackPieces(): Piece[] {
+    return [
+      // new Pawn("Black", [0, 1], this),
+      // new Pawn("Black", [1, 1], this),
+      // new Pawn("Black", [2, 1], this),
+      // new Pawn("Black", [3, 1], this),
+      // new Pawn("Black", [4, 1], this),
+      // new Pawn("Black", [5, 1], this),
+      // new Pawn("Black", [6, 1], this),
+      // new Pawn("Black", [7, 1], this),
+
+      new Rook("Black", [0, 0], this),
+      new Knight("Black", [1, 0], this),
+      new Bishop("Black", [2, 0], this),
+      new Queen("Black", [3, 0], this),
+      new King("Black", [4, 0], this),
+      new Bishop("Black", [5, 0], this),
+      new Knight("Black", [6, 0], this),
+      new Rook("Black", [7, 0], this)
+    ];
   }
 }

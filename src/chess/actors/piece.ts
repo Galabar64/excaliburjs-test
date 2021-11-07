@@ -37,6 +37,11 @@ export abstract class Piece extends Actor {
 
   onInitialize() {
     this.on("pointerdown", () => {
+      if (this.currentCase.isHighlighted) {
+        return;
+      }
+
+      this.boardRef.resetTouched();
       this.touched = true;
       this.highlightPossibleMove();
     });
@@ -60,6 +65,13 @@ export abstract class Piece extends Actor {
   private validateInitialCase(pos: [number, number]) {
     if (pos[0] < 0 || pos[1] < 0 || pos[0] >= 8 || pos[1] >= 8) {
       throw new Error("Invalid case position.");
+    }
+
+    const initialCase = this.boardRef.cases[pos[0]][pos[1]];
+    if (initialCase.piece) {
+      throw new Error(
+        `Piece: ${this.team}-${this.constructor.name} can't be place at [${pos[0]}, ${pos[1]}] because of ${initialCase.piece.team}-${initialCase.piece.constructor.name}`
+      );
     }
   }
 }

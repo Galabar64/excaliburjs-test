@@ -21,22 +21,22 @@ export class King extends Piece {
     const y = this.currentCase.yPos;
 
     const upCase = y - 1 > -1 ? this.boardRef.cases[x][y - 1] : undefined;
-    if (upCase) {
+    if (upCase && upCase.piece?.team !== this.team) {
       casesToHighlight.push(upCase);
     }
 
     const leftCase = x - 1 > -1 ? this.boardRef.cases[x - 1][y] : undefined;
-    if (leftCase) {
+    if (leftCase && leftCase.piece?.team !== this.team) {
       casesToHighlight.push(leftCase);
     }
 
     const rightCase = x + 1 < 8 ? this.boardRef.cases[x + 1][y] : undefined;
-    if (rightCase) {
+    if (rightCase && rightCase.piece?.team !== this.team) {
       casesToHighlight.push(rightCase);
     }
 
     const downCase = y + 1 < 8 ? this.boardRef.cases[x][y + 1] : undefined;
-    if (downCase) {
+    if (downCase && downCase.piece?.team !== this.team) {
       casesToHighlight.push(downCase);
     }
 

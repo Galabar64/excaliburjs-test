@@ -1,6 +1,13 @@
 import { Resources } from "../../../resources";
 import { Team } from "../../models/team";
+import {
+  checkUpCases,
+  checkDownCases,
+  checkLeftCases,
+  checkRightCases
+} from "../../utils/move-utils";
 import { Board } from "../board";
+import { Case } from "../case";
 import { Piece } from "../piece";
 
 export class Rook extends Piece {
@@ -14,6 +21,18 @@ export class Rook extends Piece {
   }
 
   public highlightPossibleMove(): void {
-    throw new Error("Method not implemented.");
+    const casesToHighlight: Case[] = [];
+
+    const x = this.currentCase.xPos;
+    const y = this.currentCase.yPos;
+
+    casesToHighlight.push(...checkUpCases(this.boardRef, this, x, y));
+    casesToHighlight.push(...checkDownCases(this.boardRef, this, x, y));
+    casesToHighlight.push(...checkLeftCases(this.boardRef, this, x, y));
+    casesToHighlight.push(...checkRightCases(this.boardRef, this, x, y));
+
+    for (const caseToHighlight of casesToHighlight) {
+      caseToHighlight.highlight();
+    }
   }
 }
