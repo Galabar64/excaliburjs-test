@@ -5,37 +5,25 @@
   "description": "A simple chess game",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build:prod && ex-test -d ./dist -t ./test/test.ts",
-    "webpack": "webpack",
-    "dev": "webpack serve --config webpack.development.js",
-    "start": "npm run dev",
-    "build:dev": "webpack --config webpack.development.js",
-    "build:prod": "webpack --config webpack.production.js"
+    "test": "npm run build && ex-test -d ./dist -t ./test/test.ts",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "author": "MQACX",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "@excaliburjs/testing": "0.25.0",
-    "@typescript-eslint/eslint-plugin": "^5.3.0",
-    "@typescript-eslint/parser": "^5.3.0",
-    "clean-webpack-plugin": "^4.0.0",
-    "compression-webpack-plugin": "^9.0.0",
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "@typescript-eslint/parser": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "html-webpack-plugin": "5.5.0",
-    "prettier": "2.4.1",
-    "source-map-loader": "^3.0.0",
-    "terser-webpack-plugin": "5.2.4",
-    "ts-loader": "9.2.6",
-    "typescript": "^4.4.4",
-    "webpack": "5.62.1",
-    "webpack-cli": "4.9.1",
-    "webpack-dev-server": "4.4.0",
-    "webpack-merge": "5.8.0"
+    "prettier": "2.6.2",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1"
   },
   "dependencies": {
-    "@excaliburjs/dev-tools": "^0.25.2",
-    "excalibur": "^0.25.2"
+    "excalibur": "^0.25.3"
   }
 }

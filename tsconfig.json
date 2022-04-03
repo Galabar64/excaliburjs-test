@@ -1,13 +1,20 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "node",
-    "target": "es2015",
-    "module": "es6",
     "strict": true,
+    "skipLibCheck": true,
     "sourceMap": true,
-    "outDir": "./dist/",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "include": ["./src"]
 }
