@@ -25,5 +25,8 @@
   },
   "dependencies": {
     "@excaliburjs/testing": "^0.25.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
