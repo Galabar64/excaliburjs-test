@@ -1,6 +1,6 @@
-import { Platform } from "./city/engines/city";
+import { Chess } from "./chess/engines/chess";
 
-export const game = new Platform();
+export const game = new Chess();
 
 game.start().then(() => {
   game.goToScene("level");

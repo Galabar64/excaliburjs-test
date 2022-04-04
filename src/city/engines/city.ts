@@ -4,7 +4,7 @@ import { DisplayMode, Engine, Loader } from "excalibur";
 // @ts-ignore
 import exampleTileMapUrl from "/assets/example-city.json";
 
-export class Platform extends Engine {
+export class City extends Engine {
   constructor() {
     super({ displayMode: DisplayMode.FitScreen });
   }
