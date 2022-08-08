@@ -9,12 +9,11 @@ export class City extends Engine {
     super({ displayMode: DisplayMode.FitScreen });
   }
 
-  public start() {
+  public async start() {
     const tiledMapResource = new TiledMapResource("/assets/example-city.json");
     const loader = new Loader([tiledMapResource]);
-    return super.start(loader).then(() => {
-      tiledMapResource.addTiledMapToScene(this.currentScene);
-      this.currentScene.camera.zoom = 2;
-    });
+    await super.start(loader);
+    tiledMapResource.addTiledMapToScene(this.currentScene);
+    this.currentScene.camera.zoom = 2;
   }
 }

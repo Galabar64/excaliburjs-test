@@ -2,7 +2,7 @@ import { Chess } from "./chess/engines/chess";
 // import { City } from "./city/engines/city";
 
 export const game = new Chess();
+// export const game = new City();
 
-game.start().then(() => {
-  game.goToScene("level");
-});
+await game.start();
+game.goToScene("level");
